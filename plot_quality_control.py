@@ -3,8 +3,7 @@
 """
 Created on Tue Apr  5 09:24:36 2022
 This script loads dispersion data and plots the quality control factors of
-the dispersion measurements. Sensitivity kernel is also plotted over the
-clean (quality controlled and network averaged) group velocity curve
+the dispersion measurements.
 @author: hbwoo
 """
 import sys
@@ -20,10 +19,9 @@ matplotlib_axes_logger.setLevel('ERROR')
 plt.rcParams.update({'figure.max_open_warning': 0})
 
 #%% Load dispersion data
-DIR = '/Volumes/Data/Seis/Oleno/FL_20STN/'
 
 # Phase2-PWS method results
-dat_dir = DIR+'2019236_2019263_100Hz_Phase2_PWS_DISPERSION/run_final'
+dat_dir = '/Dispersion_Data/'
 title_str = '(PCC-PWS)'
 # Load group wave dispersion measurements
 disp = scipy.io.loadmat(dat_dir+'/xcor.synthetic_Phase2_PWS_final.mat')
@@ -39,7 +37,7 @@ p_snrs = p_disp['SNR_prog']; p_nwvs = p_disp['NWV_prog']
 p_gvs = p_disp['GV_prog']
 
 # Time-Lin results
-dat_dir2 = '/Volumes/Data/Seis/Oleno/FL_20STN/2019236_2019263_100Hz_Time_Lin_DISPERSION/run_final'
+dat_dir2 = '/Dispersion_Data/'
 title_str2 = '(TCC-Lin)'
 # Load group wave dispersion measurements
 disp2 = scipy.io.loadmat(dat_dir2+'/xcor.synthetic_Time_Lin_final.mat')
